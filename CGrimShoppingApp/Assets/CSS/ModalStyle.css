@@ -1,0 +1,44 @@
+﻿#modalTitle{
+    font-weight:bold;
+    font-size:30px;
+}
+#NewsletterEmail{
+    width:90%;
+    padding-bottom:5px;
+    padding-top:5px;
+}
+
+#subButton{
+    border-radius:0px;
+    border-style:none;
+    padding:10px 8px;
+}
+
+#subButton:hover{
+    background-color:grey;
+    color:black;
+    border-radius:0px;
+}
+
+#findBox{
+    width:90%;
+    padding-bottom:5px;
+    padding-top:5px;
+}
+
+#findButton{
+    border-radius:0px;
+    border-style:none;
+    padding:10px 8px;
+}
+
+#findButton:hover {
+        background-color: grey;
+        color: black;
+        border-radius: 0px;
+
+}
+
+#map{
+    padding-bottom:40px;
+}

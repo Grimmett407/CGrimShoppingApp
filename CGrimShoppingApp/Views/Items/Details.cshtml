@@ -1,0 +1,91 @@
+﻿@model CGrimShoppingApp.Models.CodeFirst.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<!----------Items Details Page----------------->
+
+<div class="grid-container">
+    <div class="text-center smp bdr">
+        <h2 class="hed">Details</h2>
+
+        <img src="@Model.MediaUrl" class="mtm img" />
+        <h4 class="lead">@Model.Name</h4>
+
+        <hr />
+        <dl class="dl-horizontal">
+            @if (User.IsInRole("Admin")) { 
+            <dt>
+                @Html.DisplayNameFor(model => model.CreationDate):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreationDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedDate):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedDate)
+            </dd>
+            }
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price):
+            </dt>
+
+            <dd>
+                $@Html.DisplayFor(model => model.Price)
+            </dd>
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.MediaUrl)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MediaUrl)
+                </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description):
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.Description)*@
+                @Html.Raw(Model.Description) <!--Preseting in raw test form-->
+            </dd>
+
+        </dl>
+
+        <p>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) <span>|</span>
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+            }
+
+                 <!--Opens form tag, Action, Controller, creating a new item in cart by id -->
+            @using (Html.BeginForm("Create", "CartItems", new { id = Model.Id }, FormMethod.Post))
+            {    //To keep secure, hidden field validated when submitted
+                @Html.AntiForgeryToken()
+                //input type button
+                <input type="submit" class="btn btn-primary" value="Add to cart" />
+            }
+
+            
+
+             @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

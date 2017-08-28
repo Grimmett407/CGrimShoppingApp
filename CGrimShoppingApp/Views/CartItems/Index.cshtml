@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CGrimShoppingApp.Models.CodeFirst.CartItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center img">Your Cart</h2>
+<div class="grid-container">
+    <table class="table">
+        <tr>
+            <th>
+                Customer
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @*@{int ix = 0;}*@
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer.Fullname)
+                        </td>
+                        <td>
+                            @item.Item.Name
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Count)
+                        </td>
+                        <th>
+                            $@item.Item.Price
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreationDate)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Remove from cart", "Delete", new { id = item.Id })
+                        </td>
+                   </tr>
+
+                    item.Count++;
+                }
+
+</table>
+    <hr />
+        <p class="lead">
+            Total: $@ViewBag.CartTotal
+        </p>
+        @if (ViewBag.CartItems.Count > 0)
+        {
+            <a href="@Url.Action("Create", "Orders")">Proceed to Checkout</a>
+        }
+</div>

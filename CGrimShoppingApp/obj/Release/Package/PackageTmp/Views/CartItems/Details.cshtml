@@ -1,0 +1,52 @@
+﻿@model CGrimShoppingApp.Models.CodeFirst.CartItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="grid-container">
+    <h2>Details</h2>
+
+    <div>
+        <h4>CartItem</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.Fullname)
+            </dd>
+
+            <dt>
+                Model
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Item.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Count)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Count)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreationDate)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

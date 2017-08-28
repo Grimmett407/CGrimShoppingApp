@@ -1,0 +1,72 @@
+﻿@model IEnumerable<CGrimShoppingApp.Models.CodeFirst.Item>
+
+@{
+    ViewBag.Title = "SearchResult";
+}
+
+<div class="hero">
+    <div class="grid-container text-center">
+        <div class="grid-100">
+            <div class="site-header">
+                <img src="~/Assets/New Images/F3.jpg" class="img-responsive center-block tsp" />
+                <h2 class="head2017">Search Results</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!---------2017 Content----------->
+
+<section>
+    <div class="grid-container smp bdr">
+
+        <div class="pull-right">
+            @if (User.IsInRole("Admin"))
+            {                 //Dispayed //Command name
+                @Html.ActionLink("Create New Item", "Create")
+            }
+        </div>
+        <div style="color:green; padding-left:50px;">@Model.Count() Items</div>
+        <br />
+        <div class="grid-100 text-center">
+            @foreach (var item in Model)
+            {
+                <div class="grid-25">
+                    <!---------Action, Controller, creating a new item in cart by id -->
+                    <a href="@Url.Action("Details", new { id = item.Id })"><img src="@Url.Content(item.MediaUrl)" class="img-responsive center-block mtm" /></a>
+                    <p style="padding-top:20px;">@item.Name</p>
+                    <p3>$@item.Price</p3>
+
+                    <p>@Html.ActionLink("Details", "Details", new { id = item.Id })</p>
+
+                    <!--Opens form tag, Action, Controller, creating a new item in cart by id, ends form-->
+                    @using (Html.BeginForm("Create", "CartItems", new { id = item.Id }, FormMethod.Post))
+                    {    //To keep secure, validating when submitted
+                        @Html.AntiForgeryToken()
+                        //input type button
+                        <input type="submit" class="btn btn-success" value="Add to cart" />
+
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {                 //Dispayed //Command name
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <span>|</span>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    }
+                </div>
+            }
+
+        </div>
+        <div class="pull-right tsp">
+            @if (User.IsInRole("Admin"))
+            {                 //Dispayed //Command name
+                @Html.ActionLink("Create New Item", "Create")
+            }
+        </div>
+    </div>
+</section>
+
+
+

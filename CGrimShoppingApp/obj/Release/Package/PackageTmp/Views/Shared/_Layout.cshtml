@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Assets/CSS/myCustomStyle.css" rel="stylesheet" />
+    <link href="~/Assets/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Assets/Content/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="~/Assets/Unsemantic/unsemantic-grid-responsive-tablet.css" rel="stylesheet" />
+    <link href="~/Assets/myCSS/myCSS.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+<!------Start Nav Bar-------->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="fixed">
+        <section class="sticky">
+            <div class="container-fluid">
+                <div class="navbar-header">               <!--Action, Controller-->
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Grimm Watches Inc.</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("Index", "Items")">Series</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">CFAW Series</a></li>
+                            <li><a href="#">CFW Series</a></li>
+                        </ul>
+                    </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("Index", "Items")">Collections</a>
+                                <ul class="dropdown-menu">
+                                    
+                                    <li><a href="@Url.Action("Index", "Items")">2017</a></li>
+                                    <li><a href="#">2016</a></li>
+                                    <li><a href="#">2015</a></li>
+                                    <li><a href="#">2014</a></li>
+                                </ul>
+                            </li>
+                         
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Accessories</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Straps</a></li>
+                                    <li><a href="#">Parts</a></li>
+                                    <li><a href="#">Tools</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+               @Html.Partial("_LoginPartial")
+                        <ul class="nav navbar-nav navbar-right">
+                            <li style="margin-top:10px;">
+                                @using (Html.BeginForm("SearchResult", "Items", FormMethod.Post))
+                                {
+                                    <form action="" class="srch search-form">
+                                        <div class="form-group has-feedback">
+                                            <label for="search" class="sr-only">Search</label>
+                                                <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                                            @*<button class="btn btn-primary" name="search" id="search">Search</button>*@
+                                        </div>
+                                    </form>
+
+                                }
+                            </li>
+
+                            @if (Request.IsAuthenticated)
+                            {
+                                <li><a href="@Url.Action("Index", "CartItems")"><span class="glyphicon glyphicon-shopping-cart"></span> @ViewBag.CartItems.Count</a></li>
+                            }
+                        </ul>
+            </div>
+        </section>
+    </div>
+</nav>
+
+
+        @RenderBody()
+
+    <hr />
+
+        <!---------Subscribe Section---------->
+    <div>
+        <div class="grid-container">
+            <div class="smp">
+                <div class="grid-33">
+                    <h4>Contact Us</h4>
+                    <div class="form-group">
+                        <form>
+                            <input class="form-control mtm" type="text" placeholder="Name" />
+                            <input class="form-control mtm" type="text" placeholder="Email" />
+                            <input class="form-control mtm" type="text" placeholder="Subject" />
+                            <input class="form-control mtm img" type="text" placeholder="Message" />
+                            <a class="btn btn-primary pull-left mtm img">Send</a>
+                        </form>
+                    </div>
+                </div>
+
+                <!-----------About section------------->
+                <div class="text-center">
+                    <div class="grid-33">
+                        <div class="AboutCustom" id="AboutCus">
+                            <h4>About</h4>
+                            <div class="grid-50">
+                                <p><a href="#">About us</a></p>
+                                <p><a href="#" data-toggle="modal" data-target="#myModal">Subricbe</a></p>
+                                <p><a href="#">Careers</a></p>
+                                <p><a href="#">Support</a></p>
+                                <p><a href="#" data-toggle="modal" data-target="#myStoreModal">Find Store</a></p>
+                            </div>
+                            <div class="grid-50">
+                                <p><a href="#">Shipment</a></p>
+                                <p><a href="#">Payment</a></p>
+                                <p><a href="#">Gift Card</a></p>
+                                <p><a href="#">Return</a></p>
+                                <p><a href="#">Help</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-------------Store Info--------------->
+
+                    <div class="grid-33">
+                        <h3>Grimm Watches Inc.</h3>
+                        <p><a href="#"><i class="fa fa-phone"></i> 555-5555</a></p>
+                        <p><a href="#"><i class="fa fa-envelope"></i> Grimmett@Gmail.com</a></p>
+
+                        <h4 class="mtm">We accept</h4>
+                        <p><i class="fa fa-cc-amex"></i> Amex</p>
+                        <p><i class="fa fa-credit-card"></i> Credit Card</p>
+
+                        <br />
+                        <div class="SocialMediaIcons">
+                            <a href="#"><i class="fa fa-facebook-square"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-snapchat-ghost"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-square"></i></a>
+                            <a href="#"><i class="fa fa-twitter-square"></i></a>
+                            <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+        <!------------Footer-------------->
+
+        <footer class="myFooter">
+            <center>
+                <div>
+                    <p1>Powered by <a href="https://www.coderfoundry.com">CoderFoundry</a> &copy;Copyright CoderFoundry</p1>
+                </div>
+            </center>
+        </footer>
+
+
+
+        <!----------Subcribe Modal-------------->
+
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModallabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <div class="modal-title" id="modalTitle">
+                            SUBSCRIBE
+                        </div>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <p>Join our mailing list to recieve uptdates on new arrivals and special offers.</p>
+                        <input type="email" placeholder="Enter email" id="NewsletterEmail" />
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger center-block" id="subButton">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            #modalTitle {
+                font-weight: bold;
+                font-size: 30px;
+            }
+
+            #NewsletterEmail {
+                width: 90%;
+                padding-bottom: 5px;
+                padding-top: 5px;
+            }
+
+            #subButton {
+                border-radius: 0px;
+                border-style: none;
+                padding: 10px 8px;
+            }
+
+                #subButton:hover {
+                    background-color: grey;
+                    color: black;
+                    border-radius: 0px;
+                }
+        </style>
+
+        <!------------Find Store Modal---------------->
+
+
+        <div id="myStoreModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModallabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <div class="modal-title" id="modalTitle">
+                            FIND STORE
+                        </div>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <p>Find a store near you!</p>
+                        <input type="search" placeholder="Enter your address" id="findBox" />
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger center-block" id="findButton">Navagate to store</button>
+                    </div>
+                    <div id="map" style="padding-bottom:40px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d103163.7197140571!2d-80.14221796699644!3d36.096748520628644!
+                            2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x88530739101f5817%3A0x64583b7d90957128!2scoder+foundry!3m2!1d36.
+                            0967689!2d-80.0721779!5e0!3m2!1sen!2sus!4v1501513598611" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            #findBox {
+                width: 100%;
+                padding-bottom: 5px;
+                padding-top: 5px;
+            }
+
+            #findButton {
+                border-radius: 0px;
+                border-style: none;
+                padding: 10px 8px;
+            }
+
+                #findButton:hover {
+                    background-color: grey;
+                    color: black;
+                    border-radius: 0px;
+                }
+
+            #map {
+                padding-bottom: 40px;
+            }
+        </style>
+        <!----------End Store Modal---------------->
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Assets/JS22/JavaScript.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+<!-----<body>
+       <div class="navbar navbar-inverse navbar-fixed-top">
+           <div class="container">
+               <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                   </button>
+       NEEDS AT !!           Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { NEEDS AT!! class = "navbar-brand" })
+               </div>
+               <div class="navbar-collapse collapse">
+                   <ul class="nav navbar-nav">
+                NEEDS AT!!       <li>Html.ActionLink("Home", "Index", "Home")</li>
+                 NEEDS AT !!     <li>Html.ActionLink("About", "About", "Home")</li>
+                  NEEDS AT !!    <li>Html.ActionLink("Contact", "Contact", "Home")</li>
+                   </ul>
+           NEEDS AT!!        Html.Partial("_LoginPartial")
+               </div>
+           </div>
+       </div>
+       <div class="container body-content">-->
+
+
+
+
+
+       <!--- <hr />
+        <footer>
+NEEDS AT!!            <p>&copy; DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+NEEDS AT!    Scripts.Render("~/bundles/jquery")
+NEEDS AT    Scripts.Render("~/bundles/bootstrap")
+NEEDS AT    RenderSection("scripts", required: false)
+</body>-->
+

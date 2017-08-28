@@ -1,0 +1,21 @@
+﻿.myFooter {
+    background-color: black;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    width: 100%;
+    display: inline-block;
+    margin-top:20px;
+}
+
+p2 {
+    padding-top: 20px;
+}
+
+p3 {
+    font-weight: bold;
+}
+
+.fa:hover {
+    color: grey;
+}

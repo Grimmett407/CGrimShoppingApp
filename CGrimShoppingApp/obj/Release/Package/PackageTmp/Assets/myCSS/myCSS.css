@@ -1,0 +1,182 @@
+﻿
+.sticky{
+    background-color: black;
+    color: #fff;
+}
+
+.fixed{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+/*************************************JUMBOTRON*************************************/
+.jumbotron {
+    padding-top: 40px;
+}
+
+
+.jumbotron-image {
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.site-header {
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+    /*margin-bottom: 0 !important;*/
+    /*padding-bottom: 220px !important*/
+}
+/*************************************END JUMBOTRON*************************************/
+
+#MainHead {
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    font-size: 50px;
+    color: white;
+    font-family:Courier New, Courier, monospace;
+}
+
+.head2017 {
+    position: absolute;
+    width: 100%;
+    top: 55px;
+    left: 100px;
+    font-size: 50px;
+    color: white;
+    font-family: Courier New, Courier, monospace;
+}
+
+.hed{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:40px;
+}
+
+
+
+.customSection{
+    background-color:black;
+    color:white;
+}
+
+.mtm{
+    margin-top:20px !important;
+}
+
+.smp{
+    padding-top: 60px;
+    padding-bottom:40px;
+    text-decoration: none;
+}
+.tsp{
+    padding-top: 20px;
+}
+
+.bdr{
+    border-style: solid;
+    border-width: 2px;
+    border-color:black;
+    margin-top: 40px !important;
+}
+
+.homesec{
+    background-color:white;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    
+}
+.img{
+    padding-bottom: 20px;
+}
+
+.fnt {
+    font-family: Courier New, Courier, monospace;
+    font-weight:bold;
+}
+.hme{
+    font-size:32px;
+}
+
+.bio{
+    background-color:black;
+    color:white;
+    padding:50px 60px;
+}
+
+.tbdr {
+    border-top: solid !important;
+    border-top-color: lightgray !important;
+}
+
+bio h2{
+    font-size: 40px;
+}
+
+/*************Search Bar*****************************/
+
+.search-form .form-group {
+    float: right !important;
+    transition: all 0.35s, border-radius 0s;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+    .search-form .form-group input.form-control {
+        padding-right: 20px;
+        border: 0 none;
+        background: transparent;
+        box-shadow: none;
+        display: block;
+    }
+
+        .search-form .form-group input.form-control::-webkit-input-placeholder {
+            display: none;
+        }
+
+        .search-form .form-group input.form-control:-moz-placeholder {
+            /* Firefox 18- */
+            display: none;
+        }
+
+        .search-form .form-group input.form-control::-moz-placeholder {
+            /* Firefox 19+ */
+            display: none;
+        }
+
+        .search-form .form-group input.form-control:-ms-input-placeholder {
+            display: none;
+        }
+
+    .search-form .form-group:hover,
+    .search-form .form-group.hover {
+        width: 100%;
+        border-radius: 4px 25px 25px 4px;
+    }
+
+    .search-form .form-group span.form-control-feedback {
+        position: absolute;
+        top: -1px;
+        right: -2px;
+        z-index: 2;
+        display: block;
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        color: black;
+        left: initial;
+        font-size: 14px;
+    }

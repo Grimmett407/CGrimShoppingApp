@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CGrimShoppingApp.Models.CodeFirst.Item>     
+
+@{
+  }
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")      <!------(Display Name, Command Name)------->
+</p>
+<table class="table">     <!------Creates table and displays labels--------->
+    <tr>
+        <th>
+            @null
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediaUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {             //iterating through current multiple object
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MediaUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |       <!------(word anchored, command, submits item.ID as parameter)-->
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) | <!------To get specific item, details, or deletion-->
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
