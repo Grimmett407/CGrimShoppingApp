@@ -29,7 +29,7 @@ namespace CGrimShoppingApp.Controllers
         }
 
         // GET: Items/Details/5
-        public ActionResult Details(int? id)  //? can be null
+        public ActionResult Details(int? id, bool? justCompleted)  //? can be null
         {
             if (id == null)
             {
@@ -40,7 +40,16 @@ namespace CGrimShoppingApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(item);
+            if (justCompleted != null && justCompleted == true)
+            {
+                ViewBag.JustCompleted = true;
+            }
+            else
+            {
+                ViewBag.JustCompleted = false;
+            }
+                return View(item);
+            
         }
 
         // GET: Items/Create

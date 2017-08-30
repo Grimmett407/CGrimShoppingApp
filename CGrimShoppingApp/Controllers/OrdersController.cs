@@ -22,7 +22,7 @@ namespace CGrimShoppingApp.Controllers
         }
 
         // GET: Orders/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, bool? justCompleted)
         {
             if (id == null)
             {
@@ -32,6 +32,14 @@ namespace CGrimShoppingApp.Controllers
             if (orderEntry == null)
             {
                 return HttpNotFound();
+            }
+            if(justCompleted != null && justCompleted == true)
+            {
+                ViewBag.JustCompleted = true;
+            }
+            else
+            {
+                ViewBag.JustCompleted = false;
             }
             return View(orderEntry);
         }
@@ -69,43 +77,48 @@ namespace CGrimShoppingApp.Controllers
                     db.CartItems.Remove(item);
                     db.SaveChanges();
                 }
-
-                return RedirectToAction("Index");
+                ViewBag.User = user.Fullname;
+                return RedirectToAction("Details", new { id = order.Id, justCompleted = true});
             }
 
             return View(order);
         }
 
-        // GET: Orders/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult OrderConfirm()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order orderEntry = db.Orders.Find(id);
-            if (orderEntry == null)
-            {
-                return HttpNotFound();
-            }
-            return View(orderEntry);
+            return View("OrderConfirm");
         }
+
+        // GET: Orders/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Order orderEntry = db.Orders.Find(id);
+        //    if (orderEntry == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(orderEntry);
+        //}
 
         // POST: Orders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Address,City,State,ZipCode,Country,Phone,Total,OrderDate,CustomerId,OrderDetails")] Order orderEntry)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(orderEntry).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(orderEntry);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id,Address,City,State,ZipCode,Country,Phone,Total,OrderDate,CustomerId,OrderDetails")] Order orderEntry)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(orderEntry).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(orderEntry);
+        //}
 
         // GET: Orders/Delete/5
         public ActionResult Delete(int? id)

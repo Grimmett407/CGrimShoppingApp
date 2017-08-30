@@ -19,6 +19,7 @@ namespace CGrimShoppingApp.Models.CodeFirst
         public decimal Total { get; set; }
         public DateTime OrderDate { get; set; }
         public string CustomerId { get; set; }
+        public bool? Completed { get; set; }
 
         public virtual ApplicationUser Customer { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }

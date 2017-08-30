@@ -121,6 +121,12 @@ bio h2{
     font-size: 40px;
 }
 
+.ftr{
+    background-color:black;
+    width:100%;
+    color:white;
+}
+
 /*************Search Bar*****************************/
 
 .search-form .form-group {

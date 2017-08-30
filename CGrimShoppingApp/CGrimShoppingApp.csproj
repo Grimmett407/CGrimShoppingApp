@@ -227,6 +227,14 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\New Images\11203028_810821902327626_787393213_n.jpg" />
+    <Content Include="Assets\New Images\NewW4.jpg" />
+    <Content Include="Assets\New Images\W2.jpg" />
+    <Content Include="Assets\New Images\W3edit.jpg" />
+    <Content Include="Assets\New Images\W4 edit.jpg" />
+    <Content Include="Assets\New Images\W5.jpg" />
+    <Content Include="Assets\New Images\Watch1.jpg" />
+    <Content Include="Assets\New Images\WW1.jpg" />
     <Content Include="Assets\scripts\jquery-1.9.1.min.map" />
     <None Include="Properties\PublishProfiles\cgrimmett-shopping - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\cgrimmett-shopping - Web Deploy.pubxml" />
@@ -542,6 +550,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\Orders\OrderConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

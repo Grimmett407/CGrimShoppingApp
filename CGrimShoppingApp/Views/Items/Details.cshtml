@@ -49,13 +49,6 @@
                 $@Html.DisplayFor(model => model.Price)
             </dd>
 
-            @*<dt>
-                    @Html.DisplayNameFor(model => model.MediaUrl)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.MediaUrl)
-                </dd>*@
 
             <dt>
                 @Html.DisplayNameFor(model => model.Description):
@@ -74,18 +67,22 @@
                 @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) <span>|</span>
                 @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
             }
-
-                 <!--Opens form tag, Action, Controller, creating a new item in cart by id -->
-            @using (Html.BeginForm("Create", "CartItems", new { id = Model.Id }, FormMethod.Post))
-            {    //To keep secure, hidden field validated when submitted
-                @Html.AntiForgeryToken()
-                //input type button
-                <input type="submit" class="btn btn-primary" value="Add to cart" />
+            @if(ViewBag.JustCompleted == false)
+            {
+                    <!--Opens form tag, Action, Controller, creating a new item in cart by id -->
+                 using (Html.BeginForm("Create", "CartItems", new { id = Model.Id }, FormMethod.Post))
+                  {    //To keep secure, hidden field validated when submitted
+                     @Html.AntiForgeryToken()
+                     //input type button
+                    <input type="submit" class="btn btn-primary" value="Add to cart" />
+                  }
+                @Html.ActionLink("Back to List", "Index")
+            }
+            @if (ViewBag.JustCompleted == true)
+            {
+                @Html.ActionLink("Back to Order", "Details", "Orders")
             }
 
-            
-
-             @Html.ActionLink("Back to List", "Index")
         </p>
     </div>
 </div>
